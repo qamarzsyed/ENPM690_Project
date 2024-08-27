@@ -1,0 +1,555 @@
+<?xml version="1.0" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="rc_car" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link name="dummy_link"></link>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0100398124317302 0.216493693108504 -0.150560882065846"
+        rpy="0 0 0" />
+      <mass
+        value="81.2006356524099" />
+      <inertia
+        ixx="5.20113154197377"
+        ixy="-7.34748734406685E-07"
+        ixz="7.31547561899601E-07"
+        iyy="6.70842753939257"
+        iyz="-0.151956914849945"
+        izz="2.00100554375488" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="dummy_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="dummy_link"/>
+    <child link="base_link"/>
+  </joint>
+  <link
+    name="lidar_link">
+    <inertial>
+      <origin
+        xyz="0 0.0254 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.102962959752612" />
+      <inertia
+        ixx="3.87494234831637E-05"
+        ixy="4.22377939344323E-22"
+        ixz="3.3881317890172E-21"
+        iyy="3.32137915569974E-05"
+        iyz="1.74242317984654E-21"
+        izz="3.87494234831637E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0.01004 0.27922 0.3175"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="left_steer_link">
+    <inertial>
+      <origin
+        xyz="0.0386783422333921 1.68364412689304E-09 7.9665894991976E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.126216992487785" />
+      <inertia
+        ixx="3.63708729096065E-05"
+        ixy="-3.16756217582672E-12"
+        ixz="8.08644238083587E-12"
+        iyy="0.000407091480264784"
+        iyz="-2.42945953617092E-12"
+        izz="0.000408125374379354" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/left_steer_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/left_steer_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_steer_joint"
+    type="revolute">
+    <origin
+      xyz="-0.21856 0.44009 0.1016"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_steer_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.785"
+      upper="0.785"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="top_left_wheel_link">
+    <inertial>
+      <origin
+        xyz="-6.93889390390723E-18 0.0253999999999999 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.69084485468742" />
+      <inertia
+        ixx="0.00614139034354371"
+        ixy="-1.0313057394333E-19"
+        ixz="-9.75781955236954E-19"
+        iyy="0.0108549336271319"
+        iyz="1.44481185418543E-18"
+        izz="0.00614139034354372" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/top_left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.850980392156863 0.850980392156863 0.882352941176471 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/top_left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="top_left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.1524 0 0"
+      rpy="3.1416 -0.097923 -1.5708" />
+    <parent
+      link="left_steer_link" />
+    <child
+      link="top_left_wheel_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="right_steer_link">
+    <inertial>
+      <origin
+        xyz="0.0386783422333921 1.68364412689304E-09 7.9665894991976E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.126216992487785" />
+      <inertia
+        ixx="3.63708729096065E-05"
+        ixy="-3.1675621616159E-12"
+        ixz="8.08644237194294E-12"
+        iyy="0.000407091480264784"
+        iyz="-2.42945953014108E-12"
+        izz="0.000408125374379354" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/right_steer_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/right_steer_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_steer_join"
+    type="revolute">
+    <origin
+      xyz="0.23864 0.44009 0.1016"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_steer_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.785"
+      upper="0.785"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="top_right_wheel_link">
+    <inertial>
+      <origin
+        xyz="1.38777878078145E-17 0.0254 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.69084485468742" />
+      <inertia
+        ixx="0.00614139034354373"
+        ixy="5.92126545813258E-19"
+        ixz="-5.3270431448415E-19"
+        iyy="0.0108549336271319"
+        iyz="-3.78618859962923E-21"
+        izz="0.00614139034354373" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/top_right_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.850980392156863 0.850980392156863 0.882352941176471 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/top_right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="top_right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.1524 0 0"
+      rpy="0 0 1.5708" />
+    <parent
+      link="right_steer_link" />
+    <child
+      link="top_right_wheel_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="back_left_wheel_link">
+    <inertial>
+      <origin
+        xyz="0 0.0254000000000001 -2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.69084485468742" />
+      <inertia
+        ixx="0.00614139034354372"
+        ixy="-6.14950268371186E-19"
+        ixz="-5.12706576940826E-19"
+        iyy="0.0108549336271319"
+        iyz="5.14967761120558E-22"
+        izz="0.00614139034354372" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/back_left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.850980392156863 0.850980392156863 0.882352941176471 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/back_left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.37096 -0.067914 0.1016"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_left_wheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="back_right_wheel_link">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-17 0.0253999999999999 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.69084485468742" />
+      <inertia
+        ixx="0.00614139034354372"
+        ixy="6.18337831473532E-19"
+        ixz="-4.53236814542239E-19"
+        iyy="0.0108549336271319"
+        iyz="5.44109912370632E-20"
+        izz="0.00614139034354372" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/back_right_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.850980392156863 0.850980392156863 0.882352941176471 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rc_car/meshes/back_right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.39104 -0.067914 0.1016"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_right_wheel_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  
+  <xacro:macro name="body_color">
+    <visual>
+    <material>
+        <ambient>0.1 0.1 0.1 1</ambient>
+        <diffuse>0.1 0.1 0.1 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+  </xacro:macro>
+  
+  <gazebo reference="base_link">
+    <xacro:body_color />
+  </gazebo>
+
+  <gazebo reference="lidar_link">
+    <sensor name="lidar" type="ray">
+      <pose>0.0 0.025 0.0 1.5708 0 0</pose>
+      <always_on>true</always_on>
+      <visualize>true</visualize>
+      <update_rate>3</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1.00000</resolution>
+            <min_angle>-3.140000</min_angle>
+            <max_angle>3.140000</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.20000</min>
+          <max>5.0</max>
+          <resolution>0.015000</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="scan" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <remapping>~/out:=scan</remapping>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <frame_name>lidar_link</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+
+    # Velocity Controllers
+    <joint name="back_right_wheel_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000.0</param>
+            <param name="max">1000.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="back_left_wheel_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000.0</param>
+            <param name="max">1000.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    # Position Controller
+    <joint name="left_steer_joint">
+        <command_interface name="position">
+            <param name="min">-0.785</param>
+            <param name="max">0.785</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="right_steer_join">
+        <command_interface name="position">
+            <param name="min">-0.785</param>
+            <param name="max">0.785</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+ </ros2_control>
+
+ <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <parameters>$(find rc_car)/config/control.yaml</parameters>
+    </plugin>
+ </gazebo>
+
+ <gazebo reference="base_link">
+  <gravity>true</gravity>
+  <sensor name="imu_sensor" type="imu">
+    <always_on>true</always_on>
+    <update_rate>100</update_rate>
+    <visualize>false</visualize>
+    <topic>__default_topic__</topic>
+    <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+      <topicName>imu</topicName>
+      <bodyName>base_link</bodyName>
+      <updateRateHZ>10.0</updateRateHZ>
+      <gaussianNoise>0.0</gaussianNoise>
+      <xyzOffset>0 0 0</xyzOffset>
+      <rpyOffset>0 0 0</rpyOffset>
+      <frameName>base_link</frameName>
+      <initialOrientationAsReference>false</initialOrientationAsReference>
+    </plugin>
+    <pose>0 0 0 0 0 0</pose>
+  </sensor>
+</gazebo>
+
+</robot>
